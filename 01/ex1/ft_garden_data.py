@@ -8,9 +8,12 @@ class Plant:
         self.height_cm = height_cm
         self.age_days = age_days
 
+    def get_info(self) -> None:
+        print(str(self))
+
     def __str__(self) -> str:
         return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
-    
+
 
 if __name__ == "__main__":
     print("=== Garden Plant Registry ===")

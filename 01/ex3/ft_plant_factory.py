@@ -10,12 +10,13 @@ class Plant:
         self.height_cm = height_cm
         self.age_days = age_days
 
-    def grow(self, days: int=1, growth_rate: int=1):
+    def grow(self, days: int = 1, growth_rate: int = 1):
         self.height_cm += days * growth_rate
 
     def __str__(self) -> str:
         return f"{self.name} ({self.height_cm}cm, {self.age_days} days)"
-    
+
+
 class PlantFactory:
     plants: list[Plant]
 
@@ -34,11 +35,11 @@ class PlantFactory:
 if __name__ == "__main__":
     print("=== Garden Plant Registry ===")
     PlantFactory().add_plants([
-        Plant('Khat', 25, 30),
-        Plant('Poppy', 80, 45),
-        Plant('Ephedra', 15, 120),
-        Plant('Salvia', 35, 30),
-        Plant('Datura', 5, 15),
+        Plant('Tomato', 25, 30),
+        Plant('Basil', 15, 45),
+        Plant('Sunflower', 80, 60),
+        Plant('Lavender', 35, 90),
+        Plant('Rosemary', 20, 120),
     ])
 
     print("=== End of Program ===")

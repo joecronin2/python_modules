@@ -9,11 +9,11 @@ class Plant:
         self.age_days = age_days
 
     def __str__(self) -> str:
-        return f"""Plant: {self.name}
-Height: {self.height_cm}cm
-Age: {self.age_days} days"""
+        return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
+
 
 if __name__ == "__main__":
     print("=== Welcome to My Garden ===")
     print(Plant("Rose", 25, 30))
+    print(Plant("Sunflower", 39, 29))
     print("=== End of Program ===")

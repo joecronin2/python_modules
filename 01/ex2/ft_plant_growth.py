@@ -8,12 +8,12 @@ class Plant:
         self.height_cm = height_cm
         self.age_days = age_days
 
-    def grow(self, days: int=1, growth_rate: int=1):
+    def grow(self, days: int = 1, growth_rate: int = 1):
         self.height_cm += days * growth_rate
 
     def __str__(self) -> str:
         return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
-    
+
 
 if __name__ == "__main__":
     print("=== Garden Plant Registry ===")
@@ -27,7 +27,6 @@ if __name__ == "__main__":
         for plant in plants:
             plant.grow(days=7)
             print(plant)
-    print()
-    print("Growth this week: +6cm")
+    print("\nGrowth this week: +6cm")
 
     print("=== End of Program ===")
