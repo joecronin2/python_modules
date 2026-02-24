@@ -3,7 +3,7 @@ class Plant:
     height_cm: int
     age_days: int
 
-    def __init__(self, name: str, height_cm: int, age_days: int):
+    def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self._starting_height = height_cm
         self._starting_age = age_days
         self.name = name
@@ -26,16 +26,16 @@ class Plant:
 class PlantFactory:
     plants: list[Plant]
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.plants = []
 
-    def add_plants(self, plants: list[Plant]):
+    def add_plants(self, plants: list[Plant]) -> None:
         for plant in plants:
             print("Created:", plant)
         self.plants.extend(plants)
         print(f"\nTotal plants created: {len(plants)}")
 
-    def __str__(self):
+    def __str__(self) -> str:
         return "Plant Factory:\n" + "\n".join(str(p) for p in self.plants)
 
 
