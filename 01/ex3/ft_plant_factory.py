@@ -10,11 +10,17 @@ class Plant:
         self.height_cm = height_cm
         self.age_days = age_days
 
-    def grow(self, days: int = 1, growth_rate: int = 1):
-        self.height_cm += days * growth_rate
+    def grow(self, by_cm: int = 1) -> None:
+        self.height_cm += by_cm
+
+    def age(self, days: int = 1) -> None:
+        self.age_days += days
+
+    def get_info(self) -> None:
+        print(str(self))
 
     def __str__(self) -> str:
-        return f"{self.name} ({self.height_cm}cm, {self.age_days} days)"
+        return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
 
 
 class PlantFactory:
@@ -24,7 +30,8 @@ class PlantFactory:
         self.plants = []
 
     def add_plants(self, plants: list[Plant]):
-        [print("Created:", plant) for plant in plants]
+        for plant in plants:
+            print("Created:", plant)
         self.plants.extend(plants)
         print(f"\nTotal plants created: {len(plants)}")
 
@@ -41,5 +48,4 @@ if __name__ == "__main__":
         Plant('Lavender', 35, 90),
         Plant('Rosemary', 20, 120),
     ])
-
     print("=== End of Program ===")

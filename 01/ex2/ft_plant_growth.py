@@ -3,13 +3,19 @@ class Plant:
     height_cm: int
     age_days: int
 
-    def __init__(self, name: str, height_cm: int, age_days: int):
+    def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm
         self.age_days = age_days
 
-    def grow(self, days: int = 1, growth_rate: int = 1):
-        self.height_cm += days * growth_rate
+    def grow(self, by_cm: int = 1) -> None:
+        self.height_cm += by_cm
+
+    def age(self, days: int = 1) -> None:
+        self.age_days += days
+
+    def get_info(self) -> None:
+        print(str(self))
 
     def __str__(self) -> str:
         return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
@@ -22,11 +28,14 @@ if __name__ == "__main__":
         Plant('Sunflower', 80, 45),
         Plant('Rose', 15, 120),
     ]
-    for day in range(7):
+    days = 7
+    for day in range(days):
         print(f"=== Day {day+1} ===")
         for plant in plants:
-            plant.grow(days=7)
             print(plant)
-    print("\nGrowth this week: +6cm")
+            plant.grow()
+            plant.age()
+
+    print(f"\nGrowth this week: +{days - 1}cm")
 
     print("=== End of Program ===")
