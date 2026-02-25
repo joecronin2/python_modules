@@ -1,4 +1,4 @@
-def check_temperature(temp_str: str):
+def check_temperature(temp_str: str) -> int | None:
     try:
         n = int(temp_str)
     except ValueError:
@@ -10,7 +10,7 @@ def check_temperature(temp_str: str):
     return n
 
 
-def test_temperature_input():
+def test_temperature_input() -> None:
     print(f"Should be 25: {check_temperature("25")}")
     print(f"Should be None: {check_temperature("abc")}")
     print(f"Should be None: {check_temperature("100")}")

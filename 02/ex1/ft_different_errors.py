@@ -11,9 +11,9 @@ def garden_operations(err: str) -> None:
         pass
 
 
-def test_error_types():
+def test_error_types() -> None:
     print("=== Garden Error Types Demo ===\n")
-    errors = [
+    errors: list[str] = [
         "ValueError",
         "ZeroDivisionError",
         "FileNotFoundError",

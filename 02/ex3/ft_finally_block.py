@@ -3,7 +3,7 @@ def water_plant(plant: str) -> None:
         raise ValueError("Cannot water None or empty plant name!")
 
 
-def water_plants(plant_list: list[str]):
+def water_plants(plant_list: list[str]) -> None:
     print("Opening watering system")
     try:
         for plant in plant_list:
