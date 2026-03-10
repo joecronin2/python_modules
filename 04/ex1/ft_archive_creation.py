@@ -1,8 +1,8 @@
 if __name__ == "__main__":
     print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===")
-    filename = "new_discovery.txt"
+    filename: str = "new_discovery.txt"
     print(f"Initializing new storage unit: {filename}")
-    entries = [
+    entries: list[str] = [
         "[ENTRY 001] New quantum algorithm discovered",
         "[ENTRY 002] Efficiency increased by 347%",
         "[ENTRY 003] Archived by Data Archivist trainee"

@@ -1,9 +1,9 @@
-def crisis_handler(filename):
+def crisis_handler(filename: str) -> None:
     try:
         with open(filename, "r") as archive:
             if filename == "classified_data.txt":
                 raise PermissionError
-            content = archive.read().strip()
+            content: str = archive.read().strip()
             print(f"SUCCESS: Archive recovered - ``{content}''")
             print("STATUS: Normal operations resumed")
 
