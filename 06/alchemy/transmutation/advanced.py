@@ -1,0 +1,12 @@
+from .basic import lead_to_gold
+from ..potions import healing_potion
+
+
+def philosophers_stone() -> str:
+    return "Philosopher’s stone created using " + " and ".join(
+        [lead_to_gold(), healing_potion()]
+    )
+
+
+def elixir_of_life() -> str:
+    return "Elixir of life: eternal youth achieved!"
