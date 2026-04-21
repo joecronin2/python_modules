@@ -1,7 +1,5 @@
 import alchemy
 
-# from alchemy import create_fire, create_water
-
 if __name__ == "__main__":
     print("=== Sacred Scroll Mastery ===\n")
     print("Testing direct module access:")
