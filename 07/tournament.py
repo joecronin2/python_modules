@@ -1,11 +1,9 @@
 from ex0.factories import FlameFactory, AquaFactory
 from ex1.factories import HealingCreatureFactory, TransformCreatureFactory
 from ex2 import NormalStrategy, AggressiveStrategy, DefensiveStrategy
-from typing import List, Tuple
 
 
-def run_tournament(opponents: List[Tuple[object, object]]) -> None:
-    print("*** Tournament ***")
+def run_tournament(opponents: list[tuple[object, object]]) -> None:
     print(f"{len(opponents)} opponents involved")
 
     for i, (fac_i, strat_i) in enumerate(opponents):
@@ -20,11 +18,8 @@ def run_tournament(opponents: List[Tuple[object, object]]) -> None:
             print(c2.describe())
             print("now fight!")
             try:
-                # act with first creature's strategy
                 for msg in strat_i.act(c1):
                     print(msg)
-
-                # act with second creature's strategy
                 for msg in strat_j.act(c2):
                     print(msg)
             except Exception as exc:
@@ -33,7 +28,6 @@ def run_tournament(opponents: List[Tuple[object, object]]) -> None:
 
 
 if __name__ == "__main__":
-    # Tournament 0 (basic)
     print("Tournament 0 (basic)")
     print("[ (Flameling+Normal), (Healing+Defensive) ]")
     print("*** Tournament ***")
@@ -42,7 +36,6 @@ if __name__ == "__main__":
         (HealingCreatureFactory(), DefensiveStrategy()),
     ])
 
-    # Tournament 1 (error)
     print("\nTournament 1 (error)")
     print("[ (Flameling+Aggressive), (Healing+Defensive) ]")
     print("*** Tournament ***")
@@ -51,7 +44,6 @@ if __name__ == "__main__":
         (HealingCreatureFactory(), DefensiveStrategy()),
     ])
 
-    # Tournament 2 (multiple)
     print("\nTournament 2 (multiple)")
     print("[ (Aquabub+Normal), (Healing+Defensive), (Transform+Aggressive) ]")
     print("*** Tournament ***")

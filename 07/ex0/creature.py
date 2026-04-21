@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Any
 
 
 class Creature(ABC):
@@ -11,8 +10,7 @@ class Creature(ABC):
         self.type = type_
 
     @abstractmethod
-    def attack(self) -> str:
-        ...
+    def attack(self) -> str: ...
 
     def describe(self) -> str:
         return f"{self.name} is a {self.type} type Creature"
