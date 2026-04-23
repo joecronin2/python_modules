@@ -1,8 +1,9 @@
 import sys
 import site
+from typing import Any
 
 
-def environment_info():
+def environment_info() -> dict[str, Any]:
     return {
         "in_venv": sys.prefix != sys.base_prefix,
         "python_executable": sys.executable,

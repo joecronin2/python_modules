@@ -1,13 +1,25 @@
-import sys
 import os
 from typing import Tuple
 
+missing = []
+
 try:
     import numpy as np
+except ModuleNotFoundError:
+    missing.append("numpy")
+
+try:
     import pandas as pd
+except ModuleNotFoundError:
+    missing.append("pandas")
+
+try:
     import matplotlib.pyplot as plt
 except ModuleNotFoundError:
-    print("numpy, pandas, or matplotlib missing...")
+    missing.append("matplotlib")
+
+if missing:
+    print("Missing dependencies:", ", ".join(missing))
     exit(1)
 
 
@@ -26,8 +38,7 @@ def generate_data(n: int = 1000) -> Tuple[np.ndarray, np.ndarray]:
 
 
 def analyze_data(x: np.ndarray, y: np.ndarray) -> pd.DataFrame:
-    df: pd.DataFrame = pd.DataFrame({"time": x, "signal": y})
-    return df
+    return pd.DataFrame({"time": x, "signal": y})
 
 
 def plot_data(df: pd.DataFrame) -> None:
@@ -40,25 +51,26 @@ def plot_data(df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    print("LOADING STATUS: Loading programs...\n")
+    print("LOADING STATUS: Loading programs...")
+    print("Checking dependencies:")
 
-    env: str = detect_environment()
-    print(f"\nEnvironment: {env}")
+    import numpy
+    import pandas
+    import matplotlib
 
-    print("\nAnalyzing Matrix data...")
-    x, y = generate_data(1000)
+    print(f"[OK] pandas ({pandas.__version__}) - Data manipulation ready")
+    print(f"[OK] numpy ({numpy.__version__}) - Numerical computation ready")
+    print(f"[OK] matplotlib ({matplotlib.__version__}) - Visualization ready")
 
+    print("Analyzing Matrix data...")
     print("Processing 1000 data points...")
+    print("Generating visualization...")
 
-    df: pd.DataFrame = analyze_data(x, y)
-
-    print("\nData summary:")
-    print(df.describe())
-
-    print("\nGenerating visualization...")
+    x, y = generate_data(1000)
+    df = analyze_data(x, y)
     plot_data(df)
 
-    print("\nAnalysis complete!")
+    print("Analysis complete!")
     print("Results saved to: matrix_analysis.png")
 
 
